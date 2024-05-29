@@ -13,7 +13,7 @@ builder.Services.AddCors(x =>
     {
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
-        builder.WithOrigins("https://localhost:3000").AllowCredentials();
+        builder.WithOrigins("http://localhost:3000").AllowCredentials();
     });
 });
 
@@ -21,7 +21,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseCors("ChatPolicy");
 
-app.MapHub<ChatHub>("/chathub");
+app.MapHub<ChatHub>("/accountmessages");
 
 
 app.Run();
